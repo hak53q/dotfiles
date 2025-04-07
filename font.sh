@@ -5,6 +5,5 @@ cd Plangothic/otf/
 makepkg -si
 cd
 rm -rf /home/$USER/Plangothic/
-paru -S --needed ttf-rubik-vf
 paru -S --needed ttf-fira-code
-paru -S --needed ttf-misans{,-tc,-l3}
+paru -S --needed otf-misans{,-tc,-l3}
