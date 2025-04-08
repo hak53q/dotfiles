@@ -1,9 +1,16 @@
 sudo pacman -Syu --needed paru 
-paru -S --needed ttf-ms-win10-auto
+git clone https://github.com/hak53q/dotfiles/
+cd ~/dotfiles/fonts/
 git clone https://github.com/hak53q/Plangothic/
-cd Plangothic/otf/
+cd ~/dotfiles/fonts/Plangothic/otf/
+makepkg -si
+cd ~/dotfiles/fonts/ms/Arial/
+makepkg -si
+cd ~/dotfiles/fonts/ms/PMingLiU/
+makepkg -si
+cd ~/dotfiles/fonts/ms/KaiU/
 makepkg -si
 cd
-rm -rf /home/$USER/Plangothic/
-paru -S --needed ttf-fira-code
-paru -S --needed otf-misans{,-tc,-l3}
+paru -S --needed noto-fonts-cjk ttf-fira-code otf-misans{,-tc,-l3}
+mkdir -p ~/.config/fontconfig/
+cp ~/dotfiles/fonts/fonts.conf ~/.config/fontconfig/fonts.conf
