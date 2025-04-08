@@ -10,7 +10,9 @@ cd ~/dotfiles/fonts/ms/PMingLiU/
 makepkg -si
 cd ~/dotfiles/fonts/ms/KaiU/
 makepkg -si
+cd ~/dotfiles/fonts/Kosugi/
+makepkg -si
 cd
-paru -S --needed noto-fonts-cjk ttf-fira-code otf-misans{,-tc,-l3}
+paru -S --needed noto-fonts-cjk ttf-fira-code otf-misans otf-misans-tc otf-misans-l3 otf-misans-latin
 mkdir -p ~/.config/fontconfig/
 cp ~/dotfiles/fonts/fonts.conf ~/.config/fontconfig/fonts.conf
