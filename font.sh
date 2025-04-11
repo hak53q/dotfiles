@@ -3,6 +3,4 @@ git clone https://github.com/hak53q/Plangothic/
 cd ~/Plangothic/otf/
 makepkg -si
 cd ~
-paru -S --needed otf-rubik ttf-fira-code ttf-sarasa_ui-{tc,sc,hc,jp}
-mkdir -p ~/.config/fontconfig/
-cp ~/dotfiles/fonts.conf ~/.config/fontconfig/fonts.conf
+paru -S --needed otf-rubik ttf-fira-code ttf-sarasa_ui-all
