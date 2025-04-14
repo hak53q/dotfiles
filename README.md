@@ -1,5 +1,5 @@
 # dotfiles
-## Gnome Extension 
+## Gnome Extensions
 [Tiling Shell](https://github.com/domferr/tilingshell)\
 [Rounded Window Corners Reborn](https://github.com/flexagoon/rounded-window-corners)\
 [Dash to Dock](https://github.com/micheleg/dash-to-dock)\
@@ -13,4 +13,5 @@
 [Top Panel Workspace Scroll](https://github.com/timbertson/gnome-shell-scroll-workspaces)\
 [Alphabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)\
 [Hot Edge](https://github.com/jdoda/hotedge)\
-[Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
+[Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)\
+[Hide Keyboard Layout](https://github.com/ai/hide-keyboard-layout)
