@@ -1,6 +1,6 @@
 # dotfiles
 ## Gnome Extensions
-[Tiling Shell](https://github.com/domferr/tilingshell)\
+[Tiling Assistant](https://github.com/Leleat/Tiling-Assistant)\
 [Rounded Window Corners Reborn](https://github.com/flexagoon/rounded-window-corners)\
 [Dash to Dock](https://github.com/micheleg/dash-to-dock)\
 [Panel corners](https://github.com/aunetx/panel-corners)\
@@ -15,3 +15,4 @@
 [Hot Edge](https://github.com/jdoda/hotedge)\
 [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)\
 [Hide Keyboard Layout](https://github.com/ai/hide-keyboard-layout)
+[Pano - Clipboard Manager](https://github.com/oae/gnome-shell-pano)
