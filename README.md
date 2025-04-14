@@ -7,7 +7,10 @@
 [Fullscreen to New Workspace](https://github.com/corgijan/fullscreen-to-new-workspace)\
 [Caffeine](https://github.com/eonpatapon/gnome-shell-extension-caffeine)\
 [GNOME App Hider](https://github.com/LynithDev/gnome-app-hider)\
-[Grand Theft Focus](https://github.com/zalckos/GrandTheftFocus)\
 [Hide Top Bar](https://gitlab.gnome.org/tuxor1337/hidetopbar)\
 [Just Perfection](https://gitlab.gnome.org/jrahmatzadeh/just-perfection)\
-[Media Controls](https://github.com/sakithb/media-controls)
+[Media Controls](https://github.com/sakithb/media-controls)\
+[Top Panel Workspace Scroll](https://github.com/timbertson/gnome-shell-scroll-workspaces)\
+[Alphabetical App Grid](https://github.com/stuarthayhurst/alphabetical-grid-extension)\
+[Hot Edge](https://github.com/jdoda/hotedge)\
+[Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)
