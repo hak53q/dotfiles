@@ -16,3 +16,4 @@
 [Gnome 4x UI Improvements](https://github.com/axxapy/gnome-ui-tune)\
 [Hide Keyboard Layout](https://github.com/ai/hide-keyboard-layout)
 [Pano - Clipboard Manager](https://github.com/oae/gnome-shell-pano)
+[Arch Linux Updates Indicator](https://github.com/RaphaelRochet/arch-update)
