@@ -1,0 +1,8 @@
+{
+  "description": "Automatically hide volume indicator based on WIFI status.",
+  "name": "Auto Hide Volume Indicator",
+  "session-modes": ["unlock-dialog","user"],
+  "shell-version": ["48"],
+  "uuid": "auto-hide-volume-indicator@hak53q",
+  "version": 1
+}

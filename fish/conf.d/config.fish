@@ -4,3 +4,5 @@ alias Download='cd $HOME/下載'
 alias Pictures='cd $HOME/圖片'
 alias Movies='cd $HOME/影片'
 export BAT_THEME="ansi"
+
+starship init fish | source
