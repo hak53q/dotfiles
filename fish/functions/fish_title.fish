@@ -22,5 +22,5 @@ function fish_title
         end
     end
 
-    echo (whoami)@(uname -n):/(string join '/' $processed_components)
+    echo /(string join '/' $processed_components)
 end

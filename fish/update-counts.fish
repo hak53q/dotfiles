@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 
-sleep 2m
+sleep 1m
 
 if not ping -c 1 -W 1 1.1.1.1 > /dev/null 2>&1
-    sleep 2m
+    sleep 3m
     fish --no-config /home/hak53q/dotfiles/fish/update-counts.fish
 end
 
@@ -16,9 +16,7 @@ set total_count (math $pacman_count + $aur_count + $flatpak_count)
 
 echo $total_count > ~/.update-counts.txt
 
-if test $total_count -gt 80
-    notify-send -u critical "更新通知" "$total_count 個更新等待中，請立即處理"
-else if test $total_count -gt 40
+if test $total_count -gt 40
     notify-send -u normal "更新通知" "已有 $total_count 個更新等待中，請儘速更新！"
 else if test $total_count -gt 20
     notify-send -u low "更新通知" "$total_count 個套件等待更新"
