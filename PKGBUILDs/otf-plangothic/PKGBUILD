@@ -15,7 +15,7 @@ sha256sums=(
 )
 
 package() {
-  7z x -aoa $srcdir/Plangothic-OTF-V$pkgver.7z
+  bsdtar -xvf $srcdir/Plangothic-OTF-V$pkgver.7z
   install -Dm644 "$srcdir/Plangothic-OTF-V$pkgver/PlangothicP1-Regular.otf" "$pkgdir/usr/share/fonts/plangothic/PlangothicP1-Regular.otf"
   install -Dm644 "$srcdir/Plangothic-OTF-V$pkgver/PlangothicP2-Regular.otf" "$pkgdir/usr/share/fonts/plangothic/PlangothicP2-Regular.otf"
 }
