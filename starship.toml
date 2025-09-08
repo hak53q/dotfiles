@@ -6,8 +6,8 @@ add_newline = false
 format = '[$user]($style)'
 style_root = 'red bold'
 style_user = 'none'
-disabled = false
 show_always = true
+disabled = false
 
 [hostname]
 format = '[$hostname]($style)'
@@ -19,31 +19,55 @@ disabled = false
 format = '[$read_only]($read_only_style) '
 read_only = ' 󰌾'
 read_only_style = 'red bold'
-# truncation_length = 2
-# fish_style_pwd_dir_length = 2
 
 [custom.cwd]
 format = '[$output](cyan bold)'
 shell = ['fish', '--private', '--no-config']
 when = 'true'
 command = '''
-pwd | awk -v trunc_len="2" \
-          -v abbrev_len="2" '
-{
-  n = split($0, parts, "/");
-  out = "";
-  for (i = 1; i <= n; i++) {
-    if (parts[i] == "") continue;
-    if (i <= n - trunc_len)
-      out = out "/" substr(parts[i], 1, abbrev_len);
-    else
-      out = out "/" parts[i];
-  }
-  print out;
-}'
+set -l max_abbrev_len   2
+set -l pwd_path (pwd)
+set -l comps    (string split '/' $pwd_path)
+set comps $comps[2..-1]
+set -l total (count $comps)
+set -l processed
+
+if string match -q -- "$HOME/*" $pwd_path
+
+    set processed \
+        (string sub -s 1 -l $max_abbrev_len -- $comps[1]) \
+        (string sub -s 1 -l $max_abbrev_len -- $comps[2])
+
+    set -l rem_list $comps[3..-1]
+    set -l rem_count (count $rem_list)
+
+    for idx in (seq 1 $rem_count)
+        set comp $rem_list[$idx]
+
+        if test $rem_count -gt $truncation_length -a \
+                $idx -le (math $rem_count - $truncation_length)
+            set processed $processed \
+                (string sub -s 1 -l $max_abbrev_len -- $comp)
+        else
+            set processed $processed $comp
+        end
+    end
+
+else
+
+    for i in (seq 1 $total)
+        set comp $comps[$i]
+        if test $i -le (math $total - $truncation_length)
+            set processed $processed \
+                (string sub -s 1 -l $max_abbrev_len -- $comp)
+        else
+            set processed $processed $comp
+        end
+    end
+end
+
+echo /(string join '/' $processed)
 ''' 
-# trunc_len  = truncation_length         = 2
-# abbrev_len = fish_style_pwd_dir_length = 2
 
 [battery]
 disabled = true

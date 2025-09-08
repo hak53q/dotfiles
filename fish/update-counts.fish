@@ -1,4 +1,5 @@
 #!/usr/bin/env fish
+# 此腳本使用ChatGPT生成
 
 sleep 1m
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env fish
+# 此腳本部分使用ChatGPT生成
 
 set flag_list 0
 set flag_pacman 0

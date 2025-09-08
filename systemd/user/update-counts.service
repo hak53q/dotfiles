@@ -1,0 +1,9 @@
+[Unit]
+Description=Fish Script
+
+[Service]
+ExecStart=/usr/bin/fish /home/hak53q/dotfiles/fish/update-counts.fish
+Restart=always
+
+[Install]
+WantedBy=default.target
