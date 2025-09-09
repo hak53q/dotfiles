@@ -1,0 +1,14 @@
+pkgname=ttf-mplus-code-latin
+pkgver=1.005
+pkgrel=1
+pkgdesc="M PLUS Code Latin font from Google Fonts"
+arch=('any')
+url="https://fonts.google.com/specimen/M+PLUS+Code+Latin"
+license=('OFL')
+source=("https://github.com/google/fonts/raw/refs/heads/main/ofl/mpluscodelatin/MPLUSCodeLatin%5Bwdth,wght%5D.ttf")
+sha256sums=('SKIP')
+
+package() {
+  install -dm755 "$pkgdir/usr/share/fonts/TTF"
+  install -m644 *.ttf "$pkgdir/usr/share/fonts/TTF/"
+}
