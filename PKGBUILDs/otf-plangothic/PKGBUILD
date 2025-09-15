@@ -1,7 +1,7 @@
 # Maintainer: hak53q <hak53q@gmail.com>
 
 pkgname=otf-plangothic
-pkgver=2.9.5779
+pkgver=2.9.5787
 pkgrel=1
 arch=(any)
 url='https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic-Project'
@@ -11,7 +11,7 @@ source=(
   Plangothic-OTF-V$pkgver.7z::"https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic-Project/releases/download/V$pkgver/Plangothic-OTF-V$pkgver.7z"
 )
 sha256sums=(
-  '4e5ae828f14f2805a159ca298d03df107b8788da5e8bc22b53e1767dbf873a9f'
+  '98e88ae093f0cb4ec7142eb3e517c9117ec00e434f425857adb52c2b333a8e4b'
 )
 
 package() {
