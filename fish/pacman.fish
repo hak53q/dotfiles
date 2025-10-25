@@ -14,6 +14,11 @@ if test "$answer" = "n" -o "$answer" = ""
         sudo pacman -Sy -needed nano
         sudo nano /etc/pacman.conf
     end
+    
+    sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+    sudo pacman-key --lsign-key 3056513887B78AEB
+    sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
+    sudo pacman-key --lsign-key F3B607488DB35A47
 
     if test "$answer" = "y" -o "$answer" = ""
         echo ""
