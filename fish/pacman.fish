@@ -103,6 +103,11 @@ else
         pacman -Sy -needed nano
         nano /etc/pacman.conf
     end
+    
+    pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+    pacman-key --lsign-key 3056513887B78AEB
+    pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
+    pacman-key --lsign-key F3B607488DB35A47
 
     if test "$answer" = "y" -o "$answer" = ""
         echo ""
