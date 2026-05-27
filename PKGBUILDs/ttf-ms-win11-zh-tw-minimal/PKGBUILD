@@ -1,0 +1,94 @@
+# Note: The ISO file is very large (approximately 7GB), and downloading it will take a long time.
+# 注意：ISO 檔案極大（約 7 GB），下載需較長時間
+# 或者先到以下鏈接下載，並命名為 win11.iso 再進行構建
+# > https://www.microsoft.com/zh-tw/evalcenter/download-windows-11-enterprise
+# Windows 11 好像是每年下半年版本更新，字體也隨著更新，所以看到  Windows 11 YYH2 發佈的新聞就順便處理一下
+# 說明：公文、報告用規定字體之標楷體、新細明體、Times New Roman
+# 　　　Office 預設字體之微軟正黑體 、Aptos(new)/Calibri
+# 　　　英文常用字體 Arial
+# 　　　不知道為什麼有人打符號要用這個
+# 　　　但是沒裝遇到就一定顯示不出來的 Wingdings/Webdings
+
+pkgname=ttf-ms-win11-zh-tw-minimal
+pkgver=1.26200.0
+pkgrel=1
+pkgdesc="Essential fonts for Traditional Chinese users"
+arch=('any')
+license=('custom')
+makedepends=('7zip')
+source=(
+  'win11.iso::https://go.microsoft.com/fwlink/?linkid=2334269&clcid=0x404&culture=zh-tw&country=tw'
+  'Aptos.zip::https://download.microsoft.com/download/8/6/0/860a94fa-7feb-44ef-ac79-c072d9113d69/Microsoft%20Aptos%20Fonts.zip')
+sha256sums=(
+  '89626da8fdfdd8d03c31bc911bc525145c9e07e3a5f1c299e0645f0ab7e38096'
+  '6528fd120e719a9f985e94214eca6887d1653b88456916a792a630b02e95b025')
+
+
+_fonts=(
+  arial.ttf ariali.ttf arialbd.ttf arialbi.ttf             # Arial
+  calibril.ttf calibrili.ttf calibri.ttf calibrii.ttf
+  calibrib.ttf calibriz.ttf                                # Calibri
+  kaiu.ttf                                                 # DFKai-SB
+  mingliu.ttc mingliub.ttc                                 # MingLiU
+  msjh.ttc msjhl.ttc msjhbd.ttc                            # Microsoft JhengHei
+  times.ttf timesi.ttf timesbd.ttf timesbi.ttf             # Times New Roman
+  webdings.ttf wingding.ttf                                # Wingdings & Webdings
+)
+
+_Aptos=(
+  Aptos-Black-Italic.ttf       Aptos-Light-Italic.ttf
+  Aptos-Black.ttf              Aptos-Light.ttf
+  Aptos-Bold-Italic.ttf        Aptos-SemiBold-Italic.ttf
+  Aptos-Bold.ttf               Aptos-SemiBold.ttf
+  Aptos-ExtraBold-Italic.ttf   Aptos-Italic.ttf
+  Aptos-ExtraBold.ttf          Aptos.ttf
+)
+
+prepare() {
+  cd "$srcdir"
+
+  7z e -y win11.iso sources/install.wim
+
+  local paths=()
+  for f in "${_fonts[@]}"; do
+    paths+=("Windows/Fonts/$f")
+  done
+
+  paths+=("Windows/System32/Licenses/neutral/*/*/license.rtf")
+  
+  7z e -y install.wim "${paths[@]}"
+  7z e -y Aptos.zip
+}
+
+package() {
+  install -dm755 "$pkgdir/usr/share/fonts/TTF"
+  install -dm755 "$pkgdir/usr/share/licenses/$pkgname"
+
+  # --- Windows Fonts ---
+  for f in "${_fonts[@]}"; do
+    if [[ -f "$srcdir/$f" ]]; then
+      install -m644 "$srcdir/$f" "$pkgdir/usr/share/fonts/TTF/"
+    else
+      echo "WARNING: $f not found"
+      exit 1
+    fi
+  done
+
+  # --- Windows license ---
+  install -m644 "$srcdir/license.rtf" \
+    "$pkgdir/usr/share/licenses/$pkgname/LICENSE-windows.rtf"
+
+  # --- Aptos fonts ---
+  for f in "${_Aptos[@]}"; do
+    if [[ -f "$srcdir/$f" ]]; then
+      install -m644 "$srcdir/$f" "$pkgdir/usr/share/fonts/TTF/"
+    else
+      echo "WARNING: $f not found"
+      exit 1
+    fi
+  done
+
+  # --- Aptos license ---
+  install -m644 "$srcdir/Microsoft Aptos Fonts EULA.rtf" \
+    "$pkgdir/usr/share/licenses/$pkgname/LICENSE-aptos.txt"
+}
