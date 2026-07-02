@@ -45,14 +45,21 @@ if status is-login
 end
 
 ##############################################
-### 此段落使用 gemini 生成，不保證沒有問題 ###
 ##############################################
+
+function __update_starship_cwd --on-variable PWD
+    set -gx STARSHIP_CUSTOM_CWD (starship-cwd --bypass-cache)
+end
+
+__update_starship_cwd
 
 set -gx LANG zh_TW.UTF-8
 export BAT_THEME="ansi"
 
-if test -z "$DISPLAY"; and test "$XDG_VTNR" = "1"
+if test -z "$DISPLAY"; and test "$TERM" = "linux"
     set -gx LANG en_US.UTF-8
 end
+
+fish_add_path "/home/hak53q/.bun/bin"
 
 starship init fish | source

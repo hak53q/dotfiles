@@ -1,0 +1,37 @@
+# Maintainer: hak53q <hak53q@gmail.com>
+
+pkgname=otf-misans-tc
+pkgver=4.009
+pkgrel=1
+arch=(any)
+url='https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic-Project'
+license=(OFL)
+source=(
+  MisansTC-Bold.otf
+  MisansTC-ExtraLight.otf
+  MisansTC-Light.otf
+  MisansTC-Normal.otf
+  MisansTC-Semibold.otf
+  MisansTC-Demibold.otf
+  MisansTC-Heavy.otf
+  MisansTC-Medium.otf
+  MisansTC-Regular.otf
+  MisansTC-Thin.otf
+)
+sha256sums=(
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+)
+
+package() {
+  install -dm755 "$pkgdir/usr/share/fonts/OTF"
+  install -m644 "$srcdir"/*.otf "$pkgdir/usr/share/fonts/OTF/"
+}
