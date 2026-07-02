@@ -1,0 +1,14 @@
+pkgname=otf-genki-tw
+pkgver=2.100
+pkgrel=1
+pkgdesc='Free font derived from Source Han Serif.'
+arch=(any)
+url="https://github.com/githubnext/monaspace"
+license=(OFL)
+source=("https://github.com/ButTaiwan/genyo-font/releases/download/v2.100/GenKiMin2TW-otf.zip")
+sha256sums=('SKIP')
+
+package() {
+  install -dm755 "$pkgdir/usr/share/fonts/OTF"
+  install -m644 "$srcdir"/*.otf "$pkgdir/usr/share/fonts/OTF/"
+}

@@ -14,16 +14,14 @@ if status is-login
 
     # 二、從 bash 取得環境變數快照
     # -lc (login shell, command) 確保讀取 /etc/profile 及 /etc/profile.d
-    # bash -lc 'export -p' 輸出 declare -x COLORTERM="truecolor"...
-    # -r 正則表示式  ^ 匹配字串的開頭
-    set -l envs (env -i bash -lc 'export -p' | string replace -r '^declare -x ' '')
+    set -l envs (env -i bash -lc 'env')
 
     for entry in $envs
         if string match -q "*=*" -- $entry
             # kv = key+val，大概
             set -l kv (string split -m 1 "=" -- $entry)
             set -l key $kv[1]
-            set -l val (string trim -c '"' -- $kv[2])
+            set -l val $kv[2]
 
             # 三、過濾：如果 key 是 fish 原生有的，或者其他變數，則跳過
             # PATH 另外處理，後導入其餘非原生之變數

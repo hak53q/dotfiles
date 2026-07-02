@@ -32,6 +32,6 @@ sha256sums=(
 )
 
 package() {
-  install -dm755 "$pkgdir/usr/share/fonts/OTF"
+  install -dm755 "$pksgdir/usr/share/fonts/OTF"
   install -m644 "$srcdir"/*.otf "$pkgdir/usr/share/fonts/OTF/"
 }
